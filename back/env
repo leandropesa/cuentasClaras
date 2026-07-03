@@ -1,0 +1,21 @@
+# Backend environment variables
+# SMTP (Gmail example)
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=cuentasclarasgdsi@gmail.com
+MAIL_PASSWORD="tu-app-password-aca"
+MAIL_SMTP_AUTH=true
+MAIL_SMTP_STARTTLS=true
+MAIL_FROM=cuentasclarasgdsi@gmail.com
+
+# App config
+APP_MAIL_ENABLED=true
+APP_FRONTEND_BASE_URL=http://localhost:5173
+
+# Optional: DB overrides
+# SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/cuentasclaras
+# SPRING_DATASOURCE_USERNAME=postgres
+# SPRING_DATASOURCE_PASSWORD=1234
+
+# JWT (optional override)
+# JWT_SECRET=...

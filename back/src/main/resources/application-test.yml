@@ -1,0 +1,29 @@
+# Este archivo reemplaza application.yml SOLO durante los tests.
+# @ActiveProfiles("test") en las clases de integración activa este perfil.
+spring:
+  datasource:
+    # H2 es una base de datos que vive en memoria RAM (la usamos justamente para tener test unitarios)
+    # Se crea al iniciar el test y se destruye al terminar.
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    # create-drop: crea todas las tablas al iniciar y las borra al terminar
+    hibernate:
+      ddl-auto: create-drop
+    # Muestra el SQL generado por JPA en consola — muy útil para aprender
+    show-sql: true
+    properties:
+      hibernate:
+        # H2 entiende el dialecto de H2 (no PostgreSQL)
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+jwt:
+  secret: test-secret-key-que-tiene-al-menos-256-bits-para-funcionar-bien
+  expiration-ms: 3600000       # 1 hora
+  refresh-expiration-ms: 86400000  # 1 día
+app:
+  frontend:
+    base-url: http://localhost:5173

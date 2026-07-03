@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: cuentas-claras-back
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/cuentasclaras}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:1234}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 12MB
+jwt:
+  secret: ${JWT_SECRET:c3VwZXItc2VjcmV0LWtleS1mb3Itand0LXNlY3VyaXR5LWVuY29kaW5nLWJhc2U2NA==}
+  expiration-ms: 1800000
+  refresh-expiration-ms: 2592000000
+server:
+  port: ${PORT:8080}
+app:
+  upload-dir: ${UPLOAD_DIR:./uploads/comprobantes}
+  frontend:
+    base-url: ${APP_FRONTEND_BASE_URL:http://localhost:5173}
